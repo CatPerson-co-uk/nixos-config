@@ -8,11 +8,14 @@
 
   programs = {
     home-manager.enable = true;
-    
-    shell = import ./shell/shell.nix { inherit config pkgs; };
-
     git = {
       enable = true;
     };
   };
+
+  imports = [
+    ./apps/apps.nix
+    ./modules/desktop/default.nix
+  ];
 }
+

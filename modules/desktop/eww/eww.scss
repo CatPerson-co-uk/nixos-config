@@ -1,0 +1,136 @@
+* {
+  all: unset;
+  font-family: "JetBrains Mono", "Material Design Icons";
+  font-size: 14px;
+}
+
+// Material Icons
+.icon {
+  font-family: "Material Design Icons";
+  font-size: 16px;
+}
+
+// Catppuccin Mocha Colors
+$rosewater: #f5e0dc;
+$flamingo: #f2cdcd;
+$pink: #f5c2e7;
+$mauve: #cba6f7;
+$red: #f38ba8;
+$maroon: #eba0ac;
+$peach: #fab387;
+$yellow: #f9e2af;
+$green: #a6e3a1;
+$teal: #94e2d5;
+$sky: #89dceb;
+$sapphire: #74c7ec;
+$blue: #89b4fa;
+$lavender: #b4befe;
+$text: #cdd6f4;
+$subtext1: #bac2de;
+$subtext0: #a6adc8;
+$overlay2: #9399b2;
+$overlay1: #7f849c;
+$overlay0: #6c7086;
+$surface2: #585b70;
+$surface1: #45475a;
+$surface0: #313244;
+$base: #1e1e2e;
+$mantle: #181825;
+$crust: #11111b;
+
+.bar {
+  background-color: $base;
+  color: $text;
+  padding: 5px;
+}
+
+.left,
+.center,
+.right {
+  padding: 0 5px;
+}
+
+.workspaces {
+  background-color: $surface0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  
+  button {
+    color: $overlay0;
+    padding: 0 5px;
+    transition: all 0.3s ease;
+    font-size: 16px; // Slightly larger icons for workspaces
+    
+    &:hover {
+      color: $mauve;
+    }
+    
+    &.active {
+      color: $mauve;
+      font-weight: bold;
+    }
+  }
+}
+
+.active-window {
+  color: $subtext1;
+  margin-left: 15px;
+  font-weight: 500;
+}
+
+.time {
+  background-color: $surface0;
+  color: $mauve;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.system-tray {
+  background-color: $surface0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.volume {
+  background-color: $surface0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  color: $green;
+  
+  button {
+    padding-right: 5px;
+    color: $green;
+    font-size: 16px;
+    
+    &:hover {
+      color: $mauve;
+    }
+  }
+}
+
+.network {
+  background-color: $surface0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  color: $blue;
+}
+
+.battery {
+  background-color: $surface0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  color: $yellow;
+}
+
+.date {
+  background-color: $surface0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  color: $subtext1;
+} 

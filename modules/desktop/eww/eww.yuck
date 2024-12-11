@@ -1,0 +1,108 @@
+(defwindow bar
+  :monitor "DP-2"
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                     :y "0%"
+                     :width "100%"
+                     :height "30px"
+                     :anchor "top center")
+  :reserve (struts :distance "30px" :side "top")
+  (bar))
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (left)
+    (center)
+    (right)))
+
+(defwidget left []
+  (box :class "left" 
+       :orientation "h" 
+       :space-evenly false 
+       :halign "start"
+    (workspaces)
+    (active-window)))
+
+(defwidget center []
+  (box :class "center"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    (time)))
+
+(defwidget right []
+  (box :class "right"
+       :orientation "h"
+       :space-evenly false
+       :halign "end"
+    (system-tray)
+    (volume)
+    (network)
+    (battery)
+    (date)))
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (button :class "ws-1 icon" :onclick "i3-msg workspace 1" "󰋜")
+    (button :class "ws-2 icon" :onclick "i3-msg workspace 2" "󰨞")
+    (button :class "ws-3 icon" :onclick "i3-msg workspace 3" "󰈹")
+    (button :class "ws-4 icon" :onclick "i3-msg workspace 4" "󰆍")
+    (button :class "ws-5 icon" :onclick "i3-msg workspace 5" "󰝚")))
+
+(defwidget active-window []
+  (box :class "active-window"
+       :orientation "h"
+    (label :class "icon" :text "󰖲 ${active-window}")))
+
+(defwidget time []
+  (box :class "time"
+       :orientation "h"
+    (label :class "icon" :text "󰥔 ${time}")))
+
+(defwidget system-tray []
+  (box :class "system-tray"
+       (systray)))
+
+(defwidget volume []
+  (box :class "volume"
+       :orientation "h"
+       :space-evenly false
+    (button :class "icon" :onclick "pavucontrol" "󰕾")
+    (label :text "${volume}%")))
+
+(defwidget network []
+  (box :class "network"
+       :orientation "h"
+    (label :class "icon" :text "󰖩 ${network}")))
+
+(defwidget battery []
+  (box :class "battery"
+       :orientation "h"
+    (label :class "icon" :text "󰁹 ${battery}%")))
+
+(defwidget date []
+  (box :class "date"
+       :orientation "h"
+    (label :class "icon" :text "󰃭 ${date}")))
+
+(defpoll time :interval "1s"
+  "date '+%H:%M:%S'")
+
+(defpoll date :interval "1s"
+  "date '+%Y-%m-%d'")
+
+(defpoll volume :interval "1s"
+  "volume.sh")
+
+(defpoll active-window :interval "1s"
+  "window.sh")
+
+(defpoll battery :interval "10s"
+  "battery.sh")
+
+(defpoll network :interval "1s"
+  "network.sh") 
