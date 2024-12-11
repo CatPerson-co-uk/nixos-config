@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-    imports =[
+    imports = [
         ./kitty.nix
         ./zsh.nix
-    ]
+    ];
 }
